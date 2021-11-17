@@ -28,13 +28,13 @@ void dispdata(char a[]);
 	void wait_flag();
 #endif
 void lcd_init();
-void kprintf(const char *fmt, ...);
-void kputunum(unsigned int v);
-void kputnum(int v);
+void lprintf(const char *fmt, ...);
+void lputunum(unsigned int v);
+void lputnum(int v);
 static void putdigit0(unsigned char c);
 static void putdigit(unsigned char c, unsigned char *flag);
-void kputhexbyte(unsigned int v);
-void kputhex(unsigned int v);
+void lputhexbyte(unsigned int v);
+void lputhex(unsigned int v);
 
 
 #endif /* LCD_H_ */

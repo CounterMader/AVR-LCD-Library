@@ -1,7 +1,7 @@
 1 []Handling \n and \t and \\
 2 []Handling %% as Percent sign
 3 []float and double percision printing
-4 []Changing kprintf to lprintf and others
+4 [*]Changing kprintf to lprintf and others
 5 []goto next line driver function implemination
 6 []lcd init function expand (to choose character pixel number ,blinking of curser & ...)
 7 []changing everthing to macro

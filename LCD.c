@@ -71,7 +71,7 @@ void lcd_init(){
 	//comnwrt(0x02);
 }
 
-void kprintf(const char *fmt, ...)
+void lprintf(const char *fmt, ...)
 {
 	va_list ap;
 
@@ -103,8 +103,8 @@ void kprintf(const char *fmt, ...)
 				{
 					long l = va_arg(ap, unsigned long);
 					/* TODO: not 32-bit safe */
-					kputhex((unsigned short)(l >> 16));
-					kputhex((unsigned short)l);
+					lputhex((unsigned short)(l >> 16));
+					lputhex((unsigned short)l);
 					fmt += 2;
 					continue;
 				}
@@ -112,7 +112,7 @@ void kprintf(const char *fmt, ...)
 				case '2': /* assume an x is following */
 				{
 					char c = va_arg(ap, int);
-					kputhexbyte(c);
+					lputhexbyte(c);
 					fmt += 2;
 					continue;
 				}
@@ -127,11 +127,11 @@ void kprintf(const char *fmt, ...)
 					unsigned int v = va_arg(ap, int);
 
 					if (*fmt == 'x' || *fmt == 'p')
-					kputhex(v);
+					lputhex(v);
 					else if (*fmt == 'd')
-					kputnum(v);
+					lputnum(v);
 					else if (*fmt == 'u')
-					kputunum(v);
+					lputunum(v);
 
 					fmt++;
 					continue;
@@ -145,7 +145,7 @@ void kprintf(const char *fmt, ...)
 	va_end(ap);
 }
 
-void kputunum(unsigned int v)
+void lputunum(unsigned int v)
 {
 	unsigned char n = 0;
 	putdigit((v / 10000) % 10, &n);
@@ -155,13 +155,13 @@ void kputunum(unsigned int v)
 	putdigit0(v % 10);
 }
 
-void kputnum(int v)
+void lputnum(int v)
 {
 	if (v < 0) {
 		datawrt('-');
 		v = -v;
 	}
-	kputunum(v);
+	lputunum(v);
 }
 
 static void putdigit0(unsigned char c)
@@ -175,12 +175,12 @@ static void putdigit(unsigned char c, unsigned char *flag)
 		putdigit0(c);
 	}
 }
-void kputhexbyte(unsigned int v)
+void lputhexbyte(unsigned int v)
 {
 	putdigit0(v >> 4);
 	putdigit0(v);
 }
-void kputhex(unsigned int v)
+void lputhex(unsigned int v)
 {
 	putdigit0(v >> 12);
 	putdigit0(v >> 8);
