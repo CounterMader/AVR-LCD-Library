@@ -80,6 +80,12 @@ void lprintf(const char *fmt, ...)
 		if (*fmt == '%') {
 			fmt++;
 			switch (*fmt) {
+				case '%':
+				{
+					dispdata(*fmt);
+					fmt++;
+					continue;
+				}
 				case 's':
 				{
 					char* str = va_arg(ap, char *);
