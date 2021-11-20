@@ -82,7 +82,7 @@ void lprintf(const char *fmt, ...)
 			switch (*fmt) {
 				case '%':
 				{
-					dispdata(*fmt);
+					datawrt(*fmt);
 					fmt++;
 					continue;
 				}

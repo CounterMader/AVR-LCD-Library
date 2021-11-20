@@ -1,5 +1,5 @@
 1 []Handling \n and \t and \\
-2 []Handling %% as Percent sign
+2 [*]Handling %% as Percent sign
 3 []float and double percision printing
 4 [*]Changing kprintf to lprintf and others
 5 []goto next line driver function implemination
